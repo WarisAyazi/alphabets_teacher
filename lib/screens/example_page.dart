@@ -2,10 +2,12 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class ExamplePage extends StatefulWidget {
-  final String letter;
+  final String word;
+  final String voice;
   const ExamplePage({
     super.key,
-    required this.letter,
+    required this.word,
+    required this.voice,
   });
 
   @override
@@ -64,7 +66,7 @@ class _ExamplePageState extends State<ExamplePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Exmple for ${widget.letter}',
+          'Exmple for ${widget.word}',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontFamily: 'Parastoo',
@@ -75,7 +77,7 @@ class _ExamplePageState extends State<ExamplePage> {
         children: [
           Center(
             child: Text(
-              widget.letter,
+              widget.word,
               style: TextStyle(
                 color: Colors.blue,
                 fontSize: 150,
@@ -117,7 +119,8 @@ class _ExamplePageState extends State<ExamplePage> {
                       if (isPlaying) {
                         await audioPlayer.pause();
                       } else {
-                        final path = AssetSource('voices/Voice 001.m4a');
+                        final path = AssetSource('${widget.voice}');
+                        print('${widget.voice}');
                         await audioPlayer.play(path);
                       }
                     },

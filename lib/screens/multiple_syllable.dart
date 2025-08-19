@@ -43,7 +43,7 @@ class MultipleSyllable extends StatelessWidget {
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                   children: letters
-                      .map((letter) => HoverLetter(letter: letter))
+                      .map((letter) => HoverLetter(word: letter, voice: letter))
                       .toList(),
                 ),
               ],

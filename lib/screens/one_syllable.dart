@@ -123,7 +123,7 @@ class OneSyllable extends StatelessWidget {
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 12,
                   children: letters
-                      .map((letter) => HoverLetter(letter: letter))
+                      .map((letter) => HoverLetter(word: letter, voice: letter,))
                       .toList(),
                 ),
               ],
