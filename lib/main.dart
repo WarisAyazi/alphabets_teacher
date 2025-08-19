@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_app/screens/multiple_syllable.dart';
@@ -60,7 +61,13 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         // backgroundColor: Color.fromRGBO(30, 41, 59, 1),
         backgroundColor: Color.fromRGBO(25, 35, 54, 1),
-        body: SingleChildScrollView(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/single-litter.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: SafeArea(
             child: Column(
               children: [
@@ -73,7 +80,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 CarouselSlider(
-                  options: CarouselOptions(height: 400.0),
+                  options: CarouselOptions(height: 350),
                   items: cards.map((card) {
                     return Builder(
                       builder: (BuildContext context) {
@@ -81,20 +88,31 @@ class MyApp extends StatelessWidget {
                           onTap: () {
                             navigateToPage(context, card);
                           },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.indigo[900],
-                            ),
-                            child: Center(
-                              child: Text(
-                                card,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 36,
-                                  fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(25),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 30),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  // margin: EdgeInsets.symmetric(horizontal: 2.0),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(color: Colors.white24, width: 3),
+                                    // color: Colors.indigo[900],
+                                    color: Colors.transparent
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      card,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 36,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -105,7 +123,7 @@ class MyApp extends StatelessWidget {
                   }).toList(),
                 ),
                 Container(
-                  height: 400,
+                  height: 280,
                   child: Image.asset(
                     'assets/masha-the-bear.png',
                     fit: BoxFit.cover,
