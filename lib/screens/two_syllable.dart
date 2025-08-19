@@ -94,14 +94,14 @@ class TwoSyllable extends StatelessWidget {
         title: Text('Two Syllable'),
       ),
       backgroundColor: Color.fromRGBO(25, 35, 54, 1),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/single-litter.png'),
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/single-litter.png'),
+            fit: BoxFit.cover,
           ),
+        ),
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -112,6 +112,7 @@ class TwoSyllable extends StatelessWidget {
                   crossAxisCount: 3,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
+                  physics: NeverScrollableScrollPhysics(),
                   children: letters
                       .map((letter) => HoverLetter(word: letter, voice: letter))
                       .toList(),
