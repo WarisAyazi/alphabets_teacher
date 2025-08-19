@@ -36,11 +36,6 @@ class AlphabetsPage extends StatelessWidget {
     'ه',
     'ی',
   ];
-  // English letters A-Z
-  // final List<String> letters = List.generate(
-  //   26,
-  //   (index) => String.fromCharCode(65 + index),
-  // );
 
   AlphabetsPage({super.key});
 
@@ -54,10 +49,15 @@ class AlphabetsPage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       backgroundColor: Color.fromRGBO(25, 35, 54, 1),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/single-litter.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(

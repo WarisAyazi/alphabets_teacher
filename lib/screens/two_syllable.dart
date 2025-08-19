@@ -95,8 +95,13 @@ class TwoSyllable extends StatelessWidget {
       ),
       backgroundColor: Color.fromRGBO(25, 35, 54, 1),
       body: SingleChildScrollView(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/single-litter.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -104,7 +109,7 @@ class TwoSyllable extends StatelessWidget {
               children: [
                 GridView.count(
                   shrinkWrap: true,
-                  crossAxisCount: 4,
+                  crossAxisCount: 3,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                   children: letters
