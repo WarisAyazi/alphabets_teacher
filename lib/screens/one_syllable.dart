@@ -3,13 +3,15 @@ import 'package:sign_app/words.dart';
 import '../components/hover_letters.dart';
 
 class OneSyllable extends StatelessWidget {
-  OneSyllable({super.key});
+  const OneSyllable({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('One Syllable'),
+        backgroundColor: Color.fromRGBO(25, 35, 54, 0.9),
+        foregroundColor: Colors.white,
       ),
       backgroundColor: Color.fromRGBO(25, 35, 54, 1),
       body: Container(

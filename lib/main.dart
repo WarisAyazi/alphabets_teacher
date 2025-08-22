@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 CarouselSlider(
-                  options: CarouselOptions(height: 350),
+                  options: CarouselOptions(height: 380),
                   items: cards.map((card) {
                     return Builder(
                       builder: (BuildContext context) {

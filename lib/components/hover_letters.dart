@@ -6,14 +6,14 @@ class HoverLetter extends StatefulWidget {
   final String word;
   final String voice;
 
-  HoverLetter({
-    Key? key,
+  const HoverLetter({
+    super.key,
     required this.word,
     required this.voice,
-  }) : super(key: key);
+  });
 
   @override
-  _HoverLetterState createState() => _HoverLetterState();
+  State<HoverLetter> createState() => _HoverLetterState();
 }
 
 class _HoverLetterState extends State<HoverLetter> {
@@ -45,15 +45,15 @@ class _HoverLetterState extends State<HoverLetter> {
               child: Container(
                 decoration: BoxDecoration(
                     color: Colors.transparent,
-                    border: Border.all(color: Colors.white24, width: 2),
+                    border: Border.all(color: Colors.white24, width: 2,),
                     borderRadius: BorderRadius.circular(15)),
                 child: Center(
                   child: Text(
-                    '${widget.word}',
+                    widget.word,
                     style: TextStyle(
                       fontFamily: 'Parastoo',
                       color: Colors.white,
-                      fontSize: 32,
+                      fontSize: 34,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

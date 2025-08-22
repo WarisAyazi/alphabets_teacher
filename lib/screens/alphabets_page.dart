@@ -3,7 +3,7 @@ import 'package:sign_app/components/hover_letters.dart';
 import 'package:sign_app/words.dart';
 
 class AlphabetsPage extends StatelessWidget {
-  AlphabetsPage({super.key});
+  const AlphabetsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

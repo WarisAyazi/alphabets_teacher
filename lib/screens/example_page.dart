@@ -66,28 +66,29 @@ class _ExamplePageState extends State<ExamplePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Exmple for ${widget.word}',
+          'Exmple for   ${widget.word}',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontFamily: 'Parastoo',
+            fontSize: 24
           ),
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(
-            child: Text(
-              widget.word,
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 150,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Parastoo',
-              ),
+          Text(
+            widget.word,
+            style: TextStyle(
+              color: Colors.blue,
+              fontSize: 150,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Parastoo',
             ),
           ),
           Container(
-            height: 280,
+            height: 200,
             child: Image.asset(
               'assets/masha-animation.png',
               fit: BoxFit.cover,
@@ -100,7 +101,6 @@ class _ExamplePageState extends State<ExamplePage> {
             onChanged: (value) async {
               final position = Duration(seconds: value.toInt());
               await audioPlayer.seek(position);
-
               // optionaly: play audio if was paused
               await audioPlayer.resume();
             },
@@ -120,7 +120,6 @@ class _ExamplePageState extends State<ExamplePage> {
                         await audioPlayer.pause();
                       } else {
                         final path = AssetSource('${widget.voice}');
-                        print('${widget.voice}');
                         await audioPlayer.play(path);
                       }
                     },

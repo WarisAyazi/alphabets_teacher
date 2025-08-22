@@ -10,6 +10,8 @@ class TwoSyllable extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Two Syllable'),
+        backgroundColor: Color.fromRGBO(25, 35, 54, 0.9),
+        foregroundColor: Colors.white,
       ),
       backgroundColor: Color.fromRGBO(25, 35, 54, 1),
       body: Container(

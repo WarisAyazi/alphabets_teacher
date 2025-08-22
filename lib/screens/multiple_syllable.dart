@@ -5,12 +5,13 @@ import '../components/hover_letters.dart';
 class MultipleSyllable extends StatelessWidget {
   MultipleSyllable({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Three Syllable'),
+        backgroundColor: Color.fromRGBO(25, 35, 54, 0.9),
+        foregroundColor: Colors.white,
       ),
       backgroundColor: Color.fromRGBO(25, 35, 54, 1),
       body: Container(
