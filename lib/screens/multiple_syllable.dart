@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:sign_app/words.dart';
 import '../components/hover_letters.dart';
 
 class MultipleSyllable extends StatelessWidget {
   MultipleSyllable({super.key});
-  final List<String> letters = [
-    'آب و هوا',
-    'آشپزخانه',
-    'آغازکردن',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +32,7 @@ class MultipleSyllable extends StatelessWidget {
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                   physics: NeverScrollableScrollPhysics(),
-                  children: letters
+                  children: multiple_letters
                       .map((letter) => HoverLetter(word: letter, voice: letter))
                       .toList(),
                 ),

@@ -1,74 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sign_app/words.dart';
 
 import '../components/hover_letters.dart';
 
 class ThreeSyllable extends StatelessWidget {
   ThreeSyllable({super.key});
 
-  final List<String> letters = [
-    'آب میوه',
-    'آببازی',
-    'استخوان',
-    'اسلحه',
-    'باادب',
-    'بادپکه',
-    'بادرنگ',
-    'پرسیدن',
-    'پس فردا',
-    'پلاستیک',
-    'تابستان',
-    'تجارت',
-    'تباشیر',
-    'ثانیه',
-    'جایزه',
-    'جای نماز',
-    'جلغوزه',
-    'چپرکت',
-    'چهارشنبه',
-    'حل کردن',
-    'حیوانات',
-    'خداوند',
-    'خارجی',
-    'خربوزه',
-    'درس دادن',
-    'در میان',
-    'ذخیره',
-    'ذوب شدن',
-    'رخصتی',
-    'رستورانت',
-    'ستاره',
-    'سرطان',
-    'شفتالو',
-    'شکستن',
-    'صحتمند',
-    'صمیمی',
-    'ضعف کردن',
-    'طبقه',
-    'طیاره',
-    'علاقه',
-    'علامه',
-    'غیر حاضر',
-    'غرق شدن',
-    'فاتحه',
-    'فابریکه',
-    'فاصله',
-    'قبرستان',
-    'قالب گوش',
-    'کار کردن',
-    'کامیاب',
-    'کچالو',
-    'گذاشتن',
-    'گذشته',
-    'مایعات',
-    'مثلث',
-    'محصل',
-    'نوشیدن',
-    'ناراحت',
-    'نوشیدن',
-    'وارخطا',
-    'واسلین',
-    'والیبال',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +33,7 @@ class ThreeSyllable extends StatelessWidget {
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                   physics: NeverScrollableScrollPhysics(),
-                  children: letters
+                  children: triple_letters
                       .map((letter) => HoverLetter(word: letter, voice: letter))
                       .toList(),
                 ),
