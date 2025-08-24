@@ -69,6 +69,8 @@ flutter:
     - assets/masha-character.png
     - assets/masha-the-bear.png
     - assets/single-litter.png
+    - assets/Km-challenges.png
+    - assets/challenge-1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
