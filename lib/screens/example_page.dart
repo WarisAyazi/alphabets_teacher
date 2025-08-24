@@ -19,10 +19,43 @@ class _ExamplePageState extends State<ExamplePage> {
   bool isPlaying = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
+  var currentTime = DateTime.now().millisecondsSinceEpoch;
+  var lastTime = 1755843659413;
+  var hour = TimeOfDay.now();
+
+  void _showDateDialog(path) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Continue Reading'),
+        content: const Text(
+          'You can not Read more than one word in one day Are you sure you want.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Continued to Reading')),
+              );
+              await audioPlayer.play(path);
+            },
+            child: const Text('Continue'),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   void initState() {
     super.initState();
+    print('Current Time: ${currentTime}');
+    print('Difference Between: ${currentTime - lastTime}');
 
     // listen to states: playing, paused, stoped
     audioPlayer.onPlayerStateChanged.listen((state) {
@@ -44,8 +77,10 @@ class _ExamplePageState extends State<ExamplePage> {
 
   @override
   void dispose() {
-    audioPlayer.dispose();
     super.dispose();
+    if (mounted) {
+      audioPlayer.dispose();
+    }
   }
 
   String _videoDuration(Duration duration) {
@@ -68,10 +103,9 @@ class _ExamplePageState extends State<ExamplePage> {
         title: Text(
           'Exmple for   ${widget.word}',
           style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Parastoo',
-            fontSize: 24
-          ),
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Parastoo',
+              fontSize: 24),
         ),
       ),
       body: Column(
@@ -116,11 +150,15 @@ class _ExamplePageState extends State<ExamplePage> {
                   child: IconButton(
                     icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                     onPressed: () async {
+                      final path = AssetSource(widget.voice);
                       if (isPlaying) {
                         await audioPlayer.pause();
                       } else {
-                        final path = AssetSource('${widget.voice}');
-                        await audioPlayer.play(path);
+                        if (currentTime - lastTime > 3600000 /*3066514 */) {
+                          _showDateDialog(path);
+                        } else {
+                          await audioPlayer.play(path);
+                        }
                       }
                     },
                   ),
