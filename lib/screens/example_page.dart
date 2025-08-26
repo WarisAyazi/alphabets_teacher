@@ -54,7 +54,7 @@ class _ExamplePageState extends State<ExamplePage> {
   @override
   void initState() {
     super.initState();
-    print('Current Time: ${currentTime}');
+    print('Current Time: $currentTime');
     print('Difference Between: ${currentTime - lastTime}');
 
     // listen to states: playing, paused, stoped
